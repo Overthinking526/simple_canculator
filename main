@@ -1,47 +1,42 @@
-#simple canculator
+def sulution():
+    try:
+        num1 = int(input("Enter first number: "))
+        sing = input("Enter sing: ")
+        num2 = int(input("Enter second number: "))
 
-def solution():
+        result = 0
 
-    num1 = int(input("Enter a number: "))
-    sing = input("Enter a string: ")
-    num2 = int(input("Enter another number: "))
-    result = 0
+        if sing == "+": result = num1 + num2
+        elif sing == "-": result = num1 - num2
+        elif sing == "*": result = num1 * num2
+        elif sing == "/": result = num1 / num2
+        elif sing == "**": result = num1 ** num2
+        elif sing == "%": result = num1 % num2
+        else:
+            print("Error: Invalid input!")
+            return
 
-    if sing == ("+"):
-        result = num1 + num2
-        print(result)
-    elif sing == ("-"):
-        result = num1 - num2
-        print(result)
-    elif sing == ("*"):
-        result = num1 * num2
-        print(result)
-    elif sing == ("/"):
-        result = num1 / num2
-        print(result)
-    elif sing == ("**"):
-        result = num1 ** num2
-        print(result)
-    elif sing == ("%"):
-        result = num1 % num2
-        print(result)
-    else:
-        print("Invalid input1")
+        print(f"Result: {result} ")
 
-    story = num1, sing, num2, "=", result
+        with open("story.txt", "a",  encoding="utf-8") as file:
+            file.write(f"{num1} {sing} {num2} = {result}\n")
 
-    with open("story.txt", "w") as file:
-        file.write(str(story))
+    except ValueError:
+        print("Error: Invalid input!")
 
 
-def question():
-    print("Welcome to my canculator!")
-    print("If you want to run the calculator, write: Yes, if not, then: No.")
-    approach = input("")
-    if approach == "Yes":
-        solution()
-    if approach == "No":
-        question()
+def start_app():
+    print("Welcome to my Cantulator!")
+    while True:
+        approach = input("Would you like to go again? (y/n): ")
+        if approach == "y":
+            sulution()
+        elif approach == "n":
+            print("Goodbye!")
+            break
+        else:
+            print("Please enter 'y' or 'n': ")
 
-while True:
-    question()
+
+if __name__ == "__main__":
+    start_app()
