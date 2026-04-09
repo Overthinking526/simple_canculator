@@ -26,11 +26,22 @@ def solution():
         result = num1 % num2
         print(result)
     else:
-        print("Invalid input")
+        print("Invalid input1")
 
     story = num1, sing, num2, "=", result
 
     with open("story.txt", "w") as file:
         file.write(str(story))
 
-solution()
+
+def question():
+    print("Welcome to my canculator!")
+    print("If you want to run the calculator, write: Yes, if not, then: No.")
+    approach = input("")
+    if approach == "Yes":
+        solution()
+    if approach == "No":
+        question()
+
+while True:
+    question()
