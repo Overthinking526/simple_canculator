@@ -1,11 +1,12 @@
 #simple canculator
 
-num1 = int(input("Enter a number: "))
-sing = input("Enter a string: ")
-num2 = int(input("Enter another number: "))
-result = 0
-
 def solution():
+
+    num1 = int(input("Enter a number: "))
+    sing = input("Enter a string: ")
+    num2 = int(input("Enter another number: "))
+    result = 0
+
     if sing == ("+"):
         result = num1 + num2
         print(result)
@@ -26,5 +27,10 @@ def solution():
         print(result)
     else:
         print("Invalid input")
+
+    story = num1, sing, num2, "=", result
+
+    with open("story.txt", "w") as file:
+        file.write(str(story))
 
 solution()
