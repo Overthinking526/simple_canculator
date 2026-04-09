@@ -1,0 +1,32 @@
+#simple canculator
+
+num1 = int(input("Enter a number: "))
+num2 = int(input("Enter another number: "))
+
+sing = input("Enter a string: ")
+
+result = 0
+
+def solution():
+    if sing == ("+"):
+        result = num1 + num2
+        print(result)
+    elif sing == ("-"):
+        result = num1 - num2
+        print(result)
+    elif sing == ("*"):
+        result = num1 * num2
+        print(result)
+    elif sing == ("/"):
+        result = num1 / num2
+        print(result)
+    elif sing == ("**"):
+        result = num1 ** num2
+        print(result)
+    elif sing == ("%"):
+        result = num1 % num2
+        print(result)
+    else:
+        print("Invalid input")
+
+solution()
