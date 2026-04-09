@@ -1,10 +1,8 @@
 #simple canculator
 
 num1 = int(input("Enter a number: "))
-num2 = int(input("Enter another number: "))
-
 sing = input("Enter a string: ")
-
+num2 = int(input("Enter another number: "))
 result = 0
 
 def solution():
