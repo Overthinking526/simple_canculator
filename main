@@ -1,42 +1,56 @@
-def sulution():
-    try:
-        num1 = int(input("Enter first number: "))
-        sing = input("Enter sing: ")
-        num2 = int(input("Enter second number: "))
+while True:
 
-        result = 0
+    play = int(input("Enter 1 if you want to exit if not enter 0: "))
 
-        if sing == "+": result = num1 + num2
-        elif sing == "-": result = num1 - num2
-        elif sing == "*": result = num1 * num2
-        elif sing == "/": result = num1 / num2
-        elif sing == "**": result = num1 ** num2
-        elif sing == "%": result = num1 % num2
-        else:
+    if play == 1:
+        break
+
+    def main():
+        solution = input("write: history or canrulator\n")
+
+        if solution == "history":
+            history()
+        elif solution == "canrulator":
+            canrulator()
+
+
+    def history():
+        with open("story.txt", "r") as file:
+            print(file.read())
+
+
+    def canrulator():
+        try:
+            num1 = int(input("Enter first number: "))
+            sing = input("Enter sing: ")
+            num2 = int(input("Enter second number: "))
+
+            result = 0
+
+            if sing == "+":
+                result = num1 + num2
+            elif sing == "-":
+                result = num1 - num2
+            elif sing == "*":
+                result = num1 * num2
+            elif sing == "/":
+                result = num1 / num2
+            elif sing == "**":
+                result = num1 ** num2
+            elif sing == "%":
+                result = num1 % num2
+            else:
+                print("Error: Invalid input!")
+                return
+
+            print(f"Result: {result} ")
+
+            with open("story.txt", "a", encoding="utf-8") as file:
+                file.write(f"{num1} {sing} {num2} = {result}\n")
+
+        except ValueError:
             print("Error: Invalid input!")
-            return
-
-        print(f"Result: {result} ")
-
-        with open("story.txt", "a",  encoding="utf-8") as file:
-            file.write(f"{num1} {sing} {num2} = {result}\n")
-
-    except ValueError:
-        print("Error: Invalid input!")
 
 
-def start_app():
-    print("Welcome to my Cantulator!")
-    while True:
-        approach = input("Would you like to go again? (y/n): ")
-        if approach == "y":
-            sulution()
-        elif approach == "n":
-            print("Goodbye!")
-            break
-        else:
-            print("Please enter 'y' or 'n': ")
-
-
-if __name__ == "__main__":
-    start_app()
+    if __name__ == '__main__':
+        main()
